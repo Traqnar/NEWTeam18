@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using KanKikuchi.AudioManager;
 
 public class SceneSwitcher : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SceneSwitcher : MonoBehaviour
 
     public void SwitchScene()
     {
+        SEManager.Instance.Play(SEPath.DECISION);
         SceneManager.LoadScene(_sceneName);
     }
 }

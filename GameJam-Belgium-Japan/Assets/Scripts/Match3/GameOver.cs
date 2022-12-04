@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using KanKikuchi.AudioManager;
 
 namespace Match3
 {
@@ -79,11 +80,13 @@ namespace Match3
 
         public void OnReplayClicked()
         {
+            SEManager.Instance.Play(SEPath.DECISION);
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
 
         public void OnDoneClicked()
         {
+            SEManager.Instance.Play(SEPath.DECISION);
             UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
         }
 

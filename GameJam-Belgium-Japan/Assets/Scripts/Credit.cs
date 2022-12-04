@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using KanKikuchi.AudioManager;
 
 public class Credit : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Credit : MonoBehaviour
 
     public void OpenCredit()
     {
+        SEManager.Instance.Play(SEPath.DECISION);
         _close.interactable = true;
         _buttonImage.color = new Color(_buttonColor.r, _buttonColor.g, _buttonColor.b, 255f);
         _credit.SetActive(true);
@@ -35,6 +37,7 @@ public class Credit : MonoBehaviour
 
     public void CloseCredit()
     {
+        SEManager.Instance.Play(SEPath.DECISION);
         _close.interactable = false;
         _buttonImage.color = new Color(_buttonColor.r, _buttonColor.g, _buttonColor.b, 0f);
         _credit.SetActive(false);

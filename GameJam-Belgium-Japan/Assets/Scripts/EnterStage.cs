@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using KanKikuchi.AudioManager;
 
 public class EnterStage : MonoBehaviour
 {
@@ -38,7 +39,9 @@ public class EnterStage : MonoBehaviour
     public void OnEnter(InputAction.CallbackContext context)
     {
         if (isStay)
-        {   Vector3 pos =  this.gameObject.transform.position;
+        {
+            SEManager.Instance.Play(SEPath.DECISION);
+            Vector3 pos =  this.gameObject.transform.position;
             InGameDate.Stage = new Vector3(pos.x, 0f, pos.z);
             SceneManager.LoadScene(_sceneName);
         }
