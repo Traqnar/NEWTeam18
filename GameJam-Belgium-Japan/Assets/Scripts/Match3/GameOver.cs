@@ -12,6 +12,7 @@ namespace Match3
         public TextMeshProUGUI loseText;
         public TextMeshProUGUI scoreText;
         public Image[] stars;
+        [SerializeField] private string _sceneName;
 
         private void Start ()
         {
@@ -83,7 +84,7 @@ namespace Match3
 
         public void OnDoneClicked()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
         }
 
     }
