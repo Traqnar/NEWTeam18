@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Match3
 {
@@ -9,11 +10,11 @@ namespace Match3
         public Level level;
         public GameOver gameOver;
 
-        public Text remainingText;
-        public Text remainingSubText;
-        public Text targetText;
-        public Text targetSubtext;
-        public Text scoreText;
+        public TextMeshProUGUI remainingText;
+        public TextMeshProUGUI remainingSubText;
+        public TextMeshProUGUI targetText;
+        public TextMeshProUGUI targetSubtext;
+        public TextMeshProUGUI scoreText;
         public Image[] stars;
 
         private int _starIndex = 0;
@@ -28,7 +29,7 @@ namespace Match3
 
         public void SetScore(int score)
         {
-            scoreText.text = score.ToString();
+            scoreText.SetText(score.ToString());
 
             int visibleStar = 0;
 
@@ -53,27 +54,27 @@ namespace Match3
             _starIndex = visibleStar;
         }
 
-        public void SetTarget(int target) => targetText.text = target.ToString();
+        public void SetTarget(int target) => targetText.SetText(target.ToString());
 
-        public void SetRemaining(int remaining) => remainingText.text = remaining.ToString();
+        public void SetRemaining(int remaining) => remainingText.SetText(remaining.ToString());
 
-        public void SetRemaining(string remaining) => remainingText.text = remaining;
+        public void SetRemaining(string remaining) => remainingText.SetText(remaining);
 
         public void SetLevelType(LevelType type)
         {
             switch (type)
             {
                 case LevelType.Moves:
-                    remainingSubText.text = "moves remaining";
-                    targetSubtext.text = "target score";
+                    remainingSubText.SetText("moves remaining");
+                    targetSubtext.SetText("target score");
                     break;
                 case LevelType.Obstacle:
-                    remainingSubText.text = "moves remaining";
-                    targetSubtext.text = "bubbles remaining";
+                    remainingSubText.SetText("moves remaining");
+                    targetSubtext.SetText("bubbles remaining");
                     break;
                 case LevelType.Timer:
-                    remainingSubText.text = "time remaining";
-                    targetSubtext.text = "target score";
+                    remainingSubText.SetText("time remaining");
+                    targetSubtext.SetText("target score");
                     break;
             }
         }

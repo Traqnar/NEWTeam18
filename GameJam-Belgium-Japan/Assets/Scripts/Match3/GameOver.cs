@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Match3
 {
@@ -8,8 +9,8 @@ namespace Match3
     {
         public GameObject screenParent;
         public GameObject scoreParent;
-        public Text loseText;
-        public Text scoreText;
+        public TextMeshProUGUI loseText;
+        public TextMeshProUGUI scoreText;
         public Image[] stars;
 
         private void Start ()
@@ -40,7 +41,7 @@ namespace Match3
             screenParent.SetActive(true);
             loseText.enabled = false;
 
-            scoreText.text = score.ToString();
+            scoreText.SetText(score.ToString());
             scoreText.enabled = false;
 
             Animator animator = GetComponent<Animator>();
